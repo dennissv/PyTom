@@ -13,8 +13,7 @@ pytompath = os.path.dirname(os.popen('dirname `which pytom`').read()[:-1])
 import webbrowser
 
 if not pytompath: pytompath = '/pytom/PyTom'
-
-print(f'PyTom path is {pytompath}')
+sys.path.insert(1, pytompath)
 
 if not pytompath:
     print('Pytom package is not available. Please load, or install Pytom.')
@@ -29,7 +28,6 @@ def update_env_vars(pytompath):
         for search in ('LD_LIBRARY_PATH','PATH','PYTHONPATH'):
             # Check if env vars include all paths set in paths.csh
             query_string = "cat {}/bin/paths.csh | grep 'setenv {}' | grep -v '${}'".format(pytompath, search,search)
-            print(f'Query string for env vars check is {query_string}')
             string = os.popen(query_string).read()[:-1].split()[-1]
             for new_lib in (string.split(':')):
                 new_lib = new_lib.replace("'","")
