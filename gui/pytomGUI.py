@@ -12,7 +12,7 @@ global pytompath
 pytompath = os.path.dirname(os.popen('dirname `which pytom`').read()[:-1])
 import webbrowser
 
-if not pytompath: pytompath = '/pytom/pytom'
+if not pytompath: pytompath = '/pytom'
 sys.path.insert(1, pytompath)
 
 if not pytompath:
