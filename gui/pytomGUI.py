@@ -14,6 +14,7 @@ import webbrowser
 
 if not pytompath: pytompath = '/pytom'
 sys.path.insert(1, pytompath)
+sys.path.insert(2, '/pytom/pytomc/libs/libtomc/libs')
 
 if not pytompath:
     print('Pytom package is not available. Please load, or install Pytom.')
